@@ -33,4 +33,21 @@ with open(full_path, "r", encoding = "utf8") as file:
             cooc_list.append(cook_dict)
             cook_dict = {}
         master_dict[dish_name] = cooc_list         
-print(master_dict)    
+print(master_dict)
+print()
+
+
+def get_shop_list_by_dishes(dishes, person_count):
+    shop_list_by_dishes = {}
+    for dish in dishes:
+        for key, value in master_dict.items():
+            if dish == key:
+                for val in value:
+                    shop_list = {"measure": "", "quantity": 0}
+                    ingredient_name = val["ingredient_name"]
+                    shop_list["measure"] = val["measure"]
+                    shop_list["quantity"] = int(val["quantity"]) * person_count
+                    shop_list_by_dishes[ingredient_name] = shop_list
+    print(shop_list_by_dishes)
+            
+get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 3)
