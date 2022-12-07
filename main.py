@@ -38,8 +38,7 @@ print(master_dict)
 print()
 file.close()
 
-# Задача №2
-
+# ЗАДАЧА №2
 def get_shop_list_by_dishes(dishes, person_count):
     shop_list_by_dishes = {}
     for dish in dishes:
@@ -55,12 +54,10 @@ def get_shop_list_by_dishes(dishes, person_count):
 
 get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 3)
 
-# Задача №3
+
+# ЗАДАЧА №3
 current = os.getcwd()
-folder_name = "2.4.files\sorted"
-
-
-    
+folder_name = "2.4.files\sorted" 
 file_list = []
 
 for root, dirs, files in os.walk(os.path.join(current, folder_name)):  
@@ -76,8 +73,6 @@ for file_name in file_list:
         sorted_tuple = sorted(dict_line_in_files.items(), key=lambda x: x[1])
         dict_line_in_files = dict(sorted_tuple)
     file.close()
-
-print(dict_line_in_files)
 
 result_file_name = "result.txt"
 result_full_path = os.path.join(current, result_file_name)
